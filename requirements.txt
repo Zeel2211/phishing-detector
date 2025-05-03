@@ -1,6 +1,8 @@
 streamlit
+numpy
+pandas
 tensorflow
 scikit-learn
-numpy
-requests
+matplotlib
 beautifulsoup4
+requests
