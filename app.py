@@ -1,13 +1,14 @@
+# app.py
 import streamlit as st
 import numpy as np
-import requests
 import pickle
+import requests
 from urllib.parse import urlparse
 from bs4 import BeautifulSoup
-from keras.models import load_model
 
 # Load model and scaler
-model = load_model("phishing_model.h5")
+with open("phishing_model.pkl", "rb") as f:
+    model = pickle.load(f)
 
 with open("scaler.pkl", "rb") as f:
     scaler = pickle.load(f)
@@ -91,7 +92,7 @@ if st.button("🔍 Detect"):
     # Ensure correct order
     input_data = np.array([combined[feat] for feat in features_order]).reshape(1, -1)
     input_scaled = scaler.transform(input_data)
-    prediction = model.predict(input_scaled)[0][0]
+    prediction = model.predict(input_scaled)[0]
     label = "Phishing" if prediction > 0.5 else "Legitimate"
     confidence = float(prediction)
 
