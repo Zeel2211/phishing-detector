@@ -1,0 +1,6 @@
+streamlit
+tensorflow
+scikit-learn
+numpy
+requests
+beautifulsoup4
