@@ -97,4 +97,3 @@ if st.button("🔍 Detect"):
     confidence = float(prediction)
 
     st.success(f"🛡️ Result: {label}")
-    st.info(f"🔢 Confidence: {confidence:.4f}")
